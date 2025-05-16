@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -134,7 +135,7 @@
       const lieu = document.getElementById("lieu").value;
       const type = document.getElementById("type").value;
       const montantStr = document.getElementById("montant").value;
-      const montantTTC = parseFloat(montantStr.split("€")[1]);
+      const montantTTC = parseFloat(montantStr.replace(/[^\d.]/g, ''));
       const designation = (type === "portique") ? "Lavage portique" : "Offre jetons";
       const mode = document.getElementById("reglement").value;
 
