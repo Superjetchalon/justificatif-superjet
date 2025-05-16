@@ -135,7 +135,8 @@
       const lieu = document.getElementById("lieu").value;
       const type = document.getElementById("type").value;
       const montantStr = document.getElementById("montant").value;
-      const montantTTC = parseFloat(montantStr.replace(/[^\d.]/g, ''));
+      const montantMatch = montantStr.match(/(\d+[,.]?\d*)€/);
+      const montantTTC = montantMatch ? parseFloat(montantMatch[1].replace(',', '.')) : 0;
       const designation = (type === "portique") ? "Lavage portique" : "Offre jetons";
       const mode = document.getElementById("reglement").value;
 
